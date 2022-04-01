@@ -194,6 +194,17 @@ export class MarkerClusterer extends OverlayViewSafe {
     }
   }
 
+  public setAutoRender(disableAutoRender?: boolean): void {
+    if (disableAutoRender) {
+      google.maps.event.removeListener(this.idleListener);
+    } else {
+      this.idleListener = this.getMap().addListener(
+        "idle",
+        this.render.bind(this)
+      );
+    }
+  }
+
   public onAdd(): void {
     this.idleListener = this.getMap().addListener(
       "idle",
