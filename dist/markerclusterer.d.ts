@@ -69,6 +69,7 @@ export declare class MarkerClusterer extends OverlayViewSafe {
      * Recalculates and draws all the marker clusters.
      */
     render(): void;
+    setAutoRender(disableAutoRender?: boolean): void;
     onAdd(): void;
     onRemove(): void;
     protected reset(): void;
